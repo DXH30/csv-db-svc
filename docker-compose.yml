@@ -1,0 +1,7 @@
+version: '3'
+services:
+  web:
+    image: dxh30/csv-db-svc
+    build: .
+    ports:
+      - "4567:4567"

@@ -1,0 +1,10 @@
+date,email,amount,description
+2023-01-01,johndoe@email.com,100.00,Deposit
+2023-01-05,marysmith@email.com,-50.00,ATM Withdrawal
+2023-01-10,bobjohnson@email.com,75.50,Online Purchase
+2023-01-15,alicejones@email.com,-30.00,Restaurant Bill
+2023-01-20,sarahbrown@email.com,200.00,Salary Credit
+2023-01-25,mikegreen@email.com,-20.00,Grocery Store
+2023-01-30,janedavis@email.com,50.75,Transfer In
+2023-02-01,dhs0223@gmail.com,50.11,ATM Withdrawal
+2023-03-01,ice.codename@gmail.com,60.11,Deposit
