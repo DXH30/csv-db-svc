@@ -5,7 +5,8 @@ require 'net/http'
 require 'uri'
 
 set :bind, '0.0.0.0'
-api_url = URI.parse('http://report-svc:5000/convert')
+report_service_url = ENV["REPORT_SERVICE_API"] || "service-svc:5000"
+api_url = URI.parse("http://#{report_service_url}/convert")
 get '/find' do
   email = params[:email]
   start_date = params[:start_date]
@@ -23,7 +24,10 @@ get '/find' do
   request.set_form_data('email' => email, 'content' => content)
   response = http.request(request)
   return { message: "Success creating report for #{email} from #{start_date} to #{end_date}" }.to_json
+rescue StandardError => e
+  return { message: e, status: "error" }.to_json
 end
+
 def read_data_from_csv(file_path)
   data = []
   CSV.foreach(file_path, headers: true) do |row|

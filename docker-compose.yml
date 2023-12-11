@@ -5,3 +5,5 @@ services:
     build: .
     ports:
       - "4567:4567"
+    environment:
+      - REPORT_SERVICE_API=report-svc:5000
