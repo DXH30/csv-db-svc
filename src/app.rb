@@ -7,6 +7,15 @@ require 'uri'
 set :bind, '0.0.0.0'
 report_service_url = ENV["REPORT_SERVICE_API"] || "service-svc:5000"
 api_url = URI.parse("http://#{report_service_url}/convert")
+
+get '/health' do
+  'OK'
+end
+
+get '/' do
+  'Welcome this is a database service with csv as it backend'
+end
+
 get '/find' do
   email = params[:email]
   start_date = params[:start_date]
@@ -35,6 +44,7 @@ def read_data_from_csv(file_path)
   end
   data
 end
+
 def filter_data(data, email, start_date, end_date)
   filtered_data = data
   filtered_data = filtered_data.select { |record| record['date'] >= start_date } if start_date
@@ -42,6 +52,7 @@ def filter_data(data, email, start_date, end_date)
   filtered_data = filtered_data.select { |record| record['email'] == email } if email
   filtered_data
 end
+
 def convert_to_csv(data)
   column_names = data.first.keys
   s=CSV.generate do |csv|
