@@ -1,0 +1,12 @@
+tasks:
+  - name: backend
+    init: docker compose pull
+    command: docker compose up -d
+
+ports:
+  - port: 4567
+    onOpen: ignore
+
+vscode:
+  extensions:
+    - rebornix.ruby
