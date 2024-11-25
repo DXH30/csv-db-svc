@@ -5,11 +5,18 @@ require 'net/http'
 require 'uri'
 
 set :bind, '0.0.0.0'
+set :public_folder, 'public'
+set :static, true
+
 report_service_url = ENV["REPORT_SERVICE_API"] || "service-svc:5000"
 api_url = URI.parse("http://#{report_service_url}/convert")
 
-get '/health' do
-  'OK'
+get '/swagger.yaml' do
+  send_file File.join(settings.public_folder, 'swagger.yaml')
+end
+
+get '/swagger-ui' do
+  send_file File.join(settings.public_folder, 'swagger-ui', 'index.html')
 end
 
 get '/' do
@@ -28,10 +35,10 @@ get '/find' do
   end
   content_type :json
   http = Net::HTTP.new(api_url.host, api_url.port)
-  request = Net::HTTP::Post.new(api_url.path)
-  content = convert_to_csv(filtered_data)
-  request.set_form_data('email' => email, 'content' => content)
-  response = http.request(request)
+  # request = Net::HTTP::Post.new(api_url.path)
+  # content = convert_to_csv(filtered_data)
+  # request.set_form_data('email' => email, 'content' => content)
+  # response = http.request(request)
   return { message: "Success creating report for #{email} from #{start_date} to #{end_date}" }.to_json
 rescue StandardError => e
   return { message: e, status: "error" }.to_json

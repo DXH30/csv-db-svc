@@ -1,0 +1,52 @@
+swagger: '2.0'
+info:
+  title: CSV DB Service
+  description: Simple api for csv CRUD
+  version: 0.1.1
+servers:
+  - url: "{scheme}://{host}:{port}/"
+    description: The base URL of the API
+paths:
+  /:
+    get:
+      summary: Welcome page
+      responses:
+        '200':
+          description: Welcome page
+          content:
+            text/plain:
+              schema:
+                type: string
+  /health:
+    get:
+      summary: Return condition of the api
+      responses:
+       '200':
+          description: Health status
+          content:
+            text/plain:
+              schema:
+                type: string
+  /find:
+    post:
+      summary: Find data in DB
+      parameters:
+        - in: body
+          name: email
+          type: string
+          example: "johndoe@email.com"
+        - in: body
+          name: start_date
+          type: string
+          example: "2023-01-01"
+        - in: body
+          name: end_date
+          type: string
+          example: "2023-01-02"
+      responses:
+       '200':
+          description: Health status
+          content:
+            text/plain:
+              schema:
+                type: string

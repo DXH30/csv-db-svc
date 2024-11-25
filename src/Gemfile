@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 # Add your project dependencies here
 # Example: gem 'sinatra'
 gem 'sinatra'
+gem 'sinatra-contrib'
 gem 'csv'
 gem 'net'
 gem 'uri'
