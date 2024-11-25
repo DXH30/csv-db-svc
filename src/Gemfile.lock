@@ -1,24 +1,144 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    actionpack (7.1.5)
+      actionview (= 7.1.5)
+      activesupport (= 7.1.5)
+      nokogiri (>= 1.8.5)
+      racc
+      rack (>= 2.2.4)
+      rack-session (>= 1.0.1)
+      rack-test (>= 0.6.3)
+      rails-dom-testing (~> 2.2)
+      rails-html-sanitizer (~> 1.6)
+    actionview (7.1.5)
+      activesupport (= 7.1.5)
+      builder (~> 3.1)
+      erubi (~> 1.11)
+      rails-dom-testing (~> 2.2)
+      rails-html-sanitizer (~> 1.6)
+    activesupport (7.1.5)
+      base64
+      benchmark (>= 0.3)
+      bigdecimal
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      connection_pool (>= 2.2.5)
+      drb
+      i18n (>= 1.6, < 2)
+      logger (>= 1.4.2)
+      minitest (>= 5.1)
+      mutex_m
+      securerandom (>= 0.3)
+      tzinfo (~> 2.0)
+    addressable (2.8.7)
+      public_suffix (>= 2.0.2, < 7.0)
+    base64 (0.2.0)
+    benchmark (0.4.0)
+    bigdecimal (3.1.8)
+    builder (3.3.0)
+    concurrent-ruby (1.3.4)
+    connection_pool (2.4.1)
+    crass (1.0.6)
+    csv (3.3.0)
+    drb (2.2.1)
+    erubi (1.13.0)
+    i18n (1.14.6)
+      concurrent-ruby (~> 1.0)
+    io-console (0.7.2)
+    irb (1.14.1)
+      rdoc (>= 4.0.0)
+      reline (>= 0.4.2)
+    json-schema (5.1.0)
+      addressable (~> 2.8)
+    logger (1.6.1)
+    loofah (2.23.1)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.12.0)
+    mini_portile2 (2.8.8)
+    minitest (5.25.2)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
+    mutex_m (0.3.0)
+    net (0.3.3)
+      activesupport
+    nokogiri (1.15.6)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
+    psych (5.2.0)
+      stringio
+    public_suffix (5.1.1)
+    racc (1.8.1)
     rack (2.2.8)
     rack-protection (3.1.0)
       rack (~> 2.2, >= 2.2.4)
+    rack-session (1.0.2)
+      rack (< 3)
+    rack-test (2.1.0)
+      rack (>= 1.3)
+    rackup (1.0.1)
+      rack (< 3)
+      webrick
+    rails-dom-testing (2.2.0)
+      activesupport (>= 5.0.0)
+      minitest
+      nokogiri (>= 1.6)
+    rails-html-sanitizer (1.6.0)
+      loofah (~> 2.21)
+      nokogiri (~> 1.14)
+    railties (7.1.5)
+      actionpack (= 7.1.5)
+      activesupport (= 7.1.5)
+      irb
+      rackup (>= 1.0.0)
+      rake (>= 12.2)
+      thor (~> 1.0, >= 1.2.2)
+      zeitwerk (~> 2.6)
+    rake (13.2.1)
+    rdoc (6.8.1)
+      psych (>= 4.0.0)
+    reline (0.5.11)
+      io-console (~> 0.5)
+    rspec-core (3.13.2)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.1)
+    rswag-api (2.16.0)
+      activesupport (>= 5.2, < 8.1)
+      railties (>= 5.2, < 8.1)
+    rswag-specs (2.16.0)
+      activesupport (>= 5.2, < 8.1)
+      json-schema (>= 2.2, < 6.0)
+      railties (>= 5.2, < 8.1)
+      rspec-core (>= 2.14)
+    rswag-ui (2.16.0)
+      actionpack (>= 5.2, < 8.1)
+      railties (>= 5.2, < 8.1)
     ruby2_keywords (0.0.5)
+    securerandom (0.3.2)
     sinatra (3.1.0)
       mustermann (~> 3.0)
       rack (~> 2.2, >= 2.2.4)
       rack-protection (= 3.1.0)
       tilt (~> 2.0)
+    stringio (3.1.2)
+    thor (1.3.2)
     tilt (2.3.0)
+    tzinfo (2.0.6)
+      concurrent-ruby (~> 1.0)
+    uri (1.0.2)
+    webrick (1.9.0)
+    zeitwerk (2.6.18)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  csv
+  net
+  rswag-api
+  rswag-specs
+  rswag-ui
   sinatra
+  uri
 
 RUBY VERSION
    ruby 2.7.0p0

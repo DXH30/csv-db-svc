@@ -1,7 +1,14 @@
 tasks:
-  - name: backend
+  - name: docker backend
     init: docker compose pull
-    command: docker compose up -d
+
+  - name: ruby backend
+    init: |
+      rvm install openssl
+      rvm install 2.7.0 --with-openssl-dir=/home/$(whoami)/.rvm/usr
+      rvm use ruby-2.7.0
+      bundle install
+    command: bundle exec ruby app.rb
 
 ports:
   - port: 4567
@@ -10,3 +17,6 @@ ports:
 vscode:
   extensions:
     - rebornix.ruby
+    - ms-azurertools.vscode-docker
+    - janisdd.vscode-edit-csv
+    - dracula-theme.theme-dracula
