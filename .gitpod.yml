@@ -4,8 +4,8 @@ tasks:
 
   - name: ruby backend
     before: |
-      rvm install openssl
-      rvm reinstall 2.7.0 --with-openssl-dir=/home/$(whoami)/.rvm/usr
+      rvm pkg install openssl
+      rvm install 2.7.0 --with-openssl-dir=/home/$(whoami)/.rvm/usr
       rvm use ruby-2.7.0
     init: |
       cd src && bundle install
